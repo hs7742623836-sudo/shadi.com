@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Savory Bistro | Clean & Simple</title>
+    <style>
+        /* BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #fcfbfa;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .logo span {
+            color: #e67e22;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+        .btn-book {
+            background: #e67e22;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .btn-book:hover {
+            background: #d35400;
+        }
+
+        /* HERO HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+        .btn-menu {
+            background: #e67e22;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-menu:hover {
+            background: #d35400;
+        }
+
+        /* SECTION LAYOUTS */
+        .section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: #fff;
+        }
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* MENU SECTION (GRID MATRIX) */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .menu-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .menu-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-info {
+            padding: 20px;
+        }
+        .menu-info h3 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        .menu-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-weight: bold;
+            color: #e67e22;
+            font-size: 18px;
+        }
+
+        /* FOOTER / CONTACT */
+        .footer {
+            background: #1a252f;
+            color: #bdc3c7;
+            padding: 40px 5% 20px 5%;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #34495e;
+        }
+        .footer-col h3 {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-col p {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE LAYOUT */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo">Savory<span>Bistro</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-book">Book Table</a>
+    </header>
+
+    <!-- Hero Display Banner -->
+    <section id="home" class="hero">
+        <h1>Delicious Food Awaits You</h1>
+        <p>Fresh ingredients, beautiful atmosphere, and exceptional cooking crafted with passion by real professionals.</p>
+        <a href="#menu" class="btn-menu">View Our Menu</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <h2>Our Story</h2>
+        <p class="section-subtitle">A little bit about who we are</p>
+        <p>Founded with a pure love for cooking, Savory Bistro serves comforting meals made from the freshest seasonal ingredients. We focus on rustic flavors, generous portions, and providing a cozy space where friends and families love to gather.</p>
+    </section>
+
+    <!-- Menu Display Grid Section -->
+    <section id="menu" class="section">
+        <h2>Popular Dishes</h2>
+        <p class="section-subtitle">Our guest favorites curated daily</p>
+        
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <img class="menu-img" src="https://unsplash.com" alt="Ribeye Steak">
+                <div class="menu-info">
+                    <h3>Garlic Ribeye Steak</h3>
+                    <p>Flame-grilled premium beef topped with homemade rosemary garlic butter dressing.</p>
+                    <div class="price">$32.00</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <img class="menu-img" src="https://unsplash.com" alt="Pizza">
+                <div class="menu-info">
+                    <h3>Four-Cheese Pizza</h3>
+                    <p>Artisan hand-tossed dough with fresh mozzarella, parmesan, gorgonzola, and fontina.</p>
+                    <div class="price">$18.50</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <img class="menu-img" src="https://unsplash.com" alt="Cheesecake">
+                <div class="menu-info">
+                    <h3>Berry Cheesecake</h3>
+                    <p>Creamy New York style cold cheesecake topped with a sweet homemade raspberry coulis glaze.</p>
+                    <div class="price">$9.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area / Contact Details -->
+    <footer id="contact" class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Our Location</h3>
+                <p>123 Food Street Avenue</p>
+                <p>New York, NY 10001</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-col">
+                <h3>Opening Hours</h3>
+                <p>Monday - Friday: 11 AM - 10 PM</p>
+                <p>Saturday - Sunday: 10 AM - 11 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Savory Bistro. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
