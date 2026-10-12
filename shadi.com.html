@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadi.com Clone | Indian & Pakistani Matrimony Site</title>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary-color: #800020; /* Burgundy / Wine tone */
+            --secondary-color: #d4af37; /* Gold accent */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: var(--text-light);
+        }
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        .btn-login {
+            background-color: transparent;
+            border: 2px solid var(--text-light);
+            padding: 0.4rem 1.2rem;
+            border-radius: 4px;
+        }
+        .btn-login:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        /* Hero & Registration Form Container */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://unsplash.com') no-repeat center center/cover;
+            min-height: 85vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem;
+        }
+        .hero-text {
+            color: var(--text-light);
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+        .hero-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero-text h2 span {
+            color: var(--secondary-color);
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Registration Form Layout */
+        .reg-card {
+            background: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 480px;
+        }
+        .reg-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .form-control, select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .form-control:focus, select:focus {
+            border-color: var(--primary-color);
+        }
+        .dob-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background-color: #5a0016;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .features h2 {
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #bbb;
+            padding: 3rem 2rem 1rem 2rem;
+            font-size: 0.9rem;
+        }
+        .footer-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            border-bottom: 1px solid #444;
+            padding-bottom: 2rem;
+        }
+        .footer-column h4 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header>
+        <div class="logo">
+            <h1>Shadi<span>.com</span></h1>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Prime Match</a>
+            <a href="#">Blogs</a>
+            <a href="#" class="btn-login">Sign In</a>
+        </nav>
+    </header>
+
+    <!-- Main Hero & Sign Up Section -->
+    <main>
+        <section class="hero-section">
+            <div class="hero-text">
+                <h2>Find Love Where <span>Serious Hearts</span> Meet</h2>
+                <p>Trusted international matchmaking since 1997. Find verified professionals who share your culture, values, and traditions.</p>
+            </div>
+
+            <!-- Profile Creation Form Area -->
+            <div class="reg-card">
+                <h3>REGISTER NEW MEMBER</h3>
+                <form action="#" method="POST">
+                    
+                    <!-- Gender Fields -->
+                    <div class="form-group">
+                        <label>I am a:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="female" required> Female</label>
+                            <label><input type="radio" name="gender" value="male"> Male</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Looking for a:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="seeking" value="female" required> Female</label>
+                            <label><input type="radio" name="seeking" value="male" checked> Male</label>
+                        </div>
+                    </div>
+
+                    <!-- Birthday Fields -->
+                    <div class="form-group">
+                        <label>Date of Birth:</label>
+                        <div class="dob-group">
+                            <select name="dob-month" required>
+                                <option value="">Month</option>
+                                <option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option>
+                                <option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option>
+                                <option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option>
+                                <option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
+                            </select>
+                            <select name="dob-day" required>
+                                <option value="">Day</option>
+                                <!-- Loop simulation via raw HTML -->
